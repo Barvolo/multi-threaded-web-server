@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project</title>
+    <link rel="icon" type="image/x-icon" href="/nir_bar_favicon.ico"> <!-- Favicon link -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff; 
+            --secondary-color: #FF4500; 
+            --background-color: #f2f2f2;
+            --text-color: #333;
+        }
+
+        .title-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    @keyframes rotatePendulum {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-20deg);
+    }
+    75% {
+        transform: rotate(20deg); 
+    }
+}
+
+.images-container img {
+    width: 300px;
+    margin: 0 10px;
+    border-radius: 8px;
+    animation: rotatePendulum 4s ease-in-out infinite; 
+}
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .moving-title {
+            text-align: center;
+            margin: 0;
+            width: 100%;
+            display: block;
+            color: var(--primary-color);
+            font-size: 8rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: moveTitle 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveTitle {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-20px); }
+            75% { transform: translateX(20px); }
+        }
+
+        .fixed-title {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        a {
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .images-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .images-container img {
+            width: 300px;
+            margin: 0 10px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .images-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .link-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: linear-gradient(145deg, #ffffff, #e6e9ef);
+            border-radius: 20px;
+            box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            padding: 40px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        form:hover {
+            box-shadow: 20px 20px 70px rgba(0, 0, 0, 0.6);
+        }
+
+        form label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #333;
+        }
+
+        input[type="text"], textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #333;
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 20px;
+            padding: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        input[type="submit"] {
+            font-family: 'Roboto Mono', monospace;
+            background: #007bff;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            margin: 0;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        .custom-checkbox {
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            background-color: #f2f2f2;
+            display: inline-block;
+            border-radius: 5px;
+            margin-right: 10px;
+            border: 2px solid var(--primary-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .checkbox-label {
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:checked + .custom-checkbox {
+            background-color: var(--primary-color);
+            border-color: var(--secondary-color);
+        }
+
+        input[type="checkbox"]:checked + .custom-checkbox::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+    form textarea {
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid #333;
+        color: #333;
+        font-size: 16px;
+        margin-bottom: 20px;
+        padding: 10px;
+        transition: border-color 0.3s ease;
+        font-family: 'Poppins', sans-serif; 
+    }
+
+    </style>
+    <script>
+        function validateForm() {
+            var inputs = document.querySelectorAll('input[type="text"]');
+            var textareas = document.querySelectorAll('textarea');
+            var allFilled = true;
+        
+            inputs.forEach(function(input) {
+                if (input.value.trim() === '') {
+                    allFilled = false;
+                }
+            });
+        
+            textareas.forEach(function(textarea) {
+                if (textarea.value.trim() === '') {
+                    allFilled = false;
+                }
+            });
+        
+            var checkbox = document.getElementById('loveit');
+            if (!checkbox.checked) {
+                alert('You must love this project in order to submit the form.');
+                return false; 
+            } else if (!allFilled) {
+                alert('Please fill out all fields.');
+                return false;
+            }
+            
+            return true; 
+        }
+        </script>
+        
+    
+</head>
+<body>
+    <div class="title-container">
+        <h1 class="moving-title">Final Project</h1>
+        <h2 class="fixed-title">By Bar Volovski & Nir Ben Itach</h2>
+    </div>
+    
+    <div class="images-container">
+        <img src="/nir_ben_itach_happy.png" alt="Nir Ben Itach Happy">
+        <img src="/bar_volovski_happy.png" alt="Bar Volovski Happy">
+    </div>
+
+    <div class="link-container">
+        <a href="https://moodle.runi.ac.il/2024/course/view.php?id=2401572">Course Website</a><br>
+        <a href="https://apple.com/">Favorite Website</a>
+    </div>
+
+    <hr>
+
+    <form name="internalForm" method="POST" action="params_info.html" enctype="application/x-www-form-urlencoded" onsubmit="return validateForm()">
+        <label for="animal">Favorite animal:</label><br>
+        <input type="text" id="animal" name="animal"><br>
+    
+        <label for="brand">Favorite brand:</label><br>
+        <input type="text" id="brand" name="brand"><br>
+    
+        <label for="food">Favorite food:</label><br>
+        <input type="text" id="food" name="food"><br>
+    
+        <label for="other">Other favorites:</label><br>
+        <textarea id="other" name="other"></textarea><br>
+    
+        <div class="checkbox-container">
+            <input type="checkbox" id="loveit" name="loveit" hidden />
+            <label for="loveit" class="custom-checkbox"></label>
+            <label for="loveit" class="checkbox-label">I Love This Project</label>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
